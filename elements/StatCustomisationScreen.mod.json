@@ -1,0 +1,59 @@
+{
+  "_fv": 66,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "Origin",
+          "name": "Origin",
+          "width": 120,
+          "height": 20,
+          "x": 152,
+          "y": 53
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "Class",
+          "name": "PlayerClass",
+          "width": 120,
+          "height": 20,
+          "x": 152,
+          "y": 80
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_set_class_and_origin",
+          "text": "Set Class and Origin",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "SetClassAndOrigin"
+          },
+          "width": 129,
+          "height": 20,
+          "x": 148,
+          "y": 171
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
