@@ -22,7 +22,9 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.shangrilafrontier.init.ShangrilaFrontierModTabs;
 import net.mcreator.shangrilafrontier.init.ShangrilaFrontierModMenus;
+import net.mcreator.shangrilafrontier.init.ShangrilaFrontierModItems;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -50,6 +52,10 @@ public class ShangrilaFrontierMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+		ShangrilaFrontierModItems.REGISTRY.register(bus);
+
+		ShangrilaFrontierModTabs.REGISTRY.register(bus);
 
 		ShangrilaFrontierModMenus.REGISTRY.register(bus);
 		// Start of user code block mod init

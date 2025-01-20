@@ -24,7 +24,8 @@
             "type": "number"
           }
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "Luck",
@@ -42,7 +43,8 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "GenerateStats",
@@ -92,7 +94,8 @@
             "type": "number"
           }
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "PlayerJoin",
@@ -126,7 +129,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "StatCustomisationScreen",
@@ -140,7 +144,8 @@
           "src/main/java/net/mcreator/shangrilafrontier/network/StatCustomisationScreenButtonMessage.java",
           "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java"
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "SetClassAndOrigin",
@@ -162,7 +167,8 @@
             "type": "map"
           }
         ]
-      }
+      },
+      "path": "~/System"
     },
     {
       "name": "PlayerJoinClassStats",
@@ -180,7 +186,183 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/System"
+    },
+    {
+      "name": "VrHeadset",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vr_headset",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/item/VrHeadsetItem.java",
+          "src/main/resources/assets/shangrila_frontier/models/item/vr_headset_helmet.json"
+        ]
+      },
+      "path": "~/Armour"
+    },
+    {
+      "name": "ShangrilaFrontierPlayerEntersDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shangrila_frontier_player_enters_dimension",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/ShangrilaFrontierPlayerEntersDimensionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "ShangrilaFrontierPlayerLeavesDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shangrila_frontier_player_leaves_dimension",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/ShangrilaFrontierPlayerLeavesDimensionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "ShangrilaFrontier",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shangrila_frontier",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/world/dimension/ShangrilaFrontierDimension.java",
+          "src/main/resources/data/shangrila_frontier/dimension_type/shangrila_frontier.json",
+          "src/main/resources/data/shangrila_frontier/dimension/shangrila_frontier.json"
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "OverworldInventory",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "overworld_inventory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/OverworldInventoryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "LoadInventory",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "load_inventory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/LoadInventoryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "ChangeDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_dimension",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/ChangeDimensionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "ChangeDimensionCmd",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_dimension_cmd",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/command/ChangeDimensionCmdCommand.java"
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "ShangriLaInventory",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shangri_la_inventory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/ShangriLaInventoryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
+    },
+    {
+      "name": "LoadShangriLaInventory",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "load_shangri_la_inventory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/LoadShangriLaInventoryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Dimension"
     }
   ],
   "variable_elements": [
@@ -267,13 +449,37 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "InGame",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "OverworldInventory",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "ShangriLaInventory",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "BLOCKS:minecraft:overworld_carver_replaceables": [
+      "~Blocks.STONE#0",
+      "~Blocks.GRASS"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+      "item.shangrila_frontier.vr_headset_helmet": "Vr Headset",
       "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
       "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
       "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
@@ -281,7 +487,32 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Dimension",
+        "children": []
+      },
+      {
+        "name": "System",
+        "children": []
+      },
+      {
+        "name": "Weapons",
+        "children": []
+      },
+      {
+        "name": "Entities",
+        "children": []
+      },
+      {
+        "name": "Armour",
+        "children": []
+      },
+      {
+        "name": "Items",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "shangrila_frontier",

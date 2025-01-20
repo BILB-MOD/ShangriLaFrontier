@@ -15,6 +15,7 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.Capability;
 
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
@@ -90,6 +91,9 @@ public class ShangrilaFrontierModVariables {
 			clone.CritChance = original.CritChance;
 			clone.PlayerClass = original.PlayerClass;
 			clone.Origin = original.Origin;
+			clone.InGame = original.InGame;
+			clone.OverworldInventory = original.OverworldInventory;
+			clone.ShangriLaInventory = original.ShangriLaInventory;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -145,6 +149,9 @@ public class ShangrilaFrontierModVariables {
 		public double CritChance = 0;
 		public String PlayerClass = "\"\"";
 		public String Origin = "\"\"";
+		public boolean InGame = false;
+		public ItemStack OverworldInventory = ItemStack.EMPTY;
+		public ItemStack ShangriLaInventory = ItemStack.EMPTY;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -167,6 +174,9 @@ public class ShangrilaFrontierModVariables {
 			nbt.putDouble("CritChance", CritChance);
 			nbt.putString("PlayerClass", PlayerClass);
 			nbt.putString("Origin", Origin);
+			nbt.putBoolean("InGame", InGame);
+			nbt.put("OverworldInventory", OverworldInventory.save(new CompoundTag()));
+			nbt.put("ShangriLaInventory", ShangriLaInventory.save(new CompoundTag()));
 			return nbt;
 		}
 
@@ -186,6 +196,9 @@ public class ShangrilaFrontierModVariables {
 			CritChance = nbt.getDouble("CritChance");
 			PlayerClass = nbt.getString("PlayerClass");
 			Origin = nbt.getString("Origin");
+			InGame = nbt.getBoolean("InGame");
+			OverworldInventory = ItemStack.of(nbt.getCompound("OverworldInventory"));
+			ShangriLaInventory = ItemStack.of(nbt.getCompound("ShangriLaInventory"));
 		}
 	}
 
@@ -233,6 +246,9 @@ public class ShangrilaFrontierModVariables {
 					variables.CritChance = message.data.CritChance;
 					variables.PlayerClass = message.data.PlayerClass;
 					variables.Origin = message.data.Origin;
+					variables.InGame = message.data.InGame;
+					variables.OverworldInventory = message.data.OverworldInventory;
+					variables.ShangriLaInventory = message.data.ShangriLaInventory;
 				}
 			});
 			context.setPacketHandled(true);
