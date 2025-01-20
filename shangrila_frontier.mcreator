@@ -16,16 +16,12 @@
             "type": "entity"
           },
           {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
             "name": "amount",
             "type": "number"
           }
         ]
       },
-      "path": "~/System"
+      "path": "~/System/StatSystem"
     },
     {
       "name": "Luck",
@@ -140,9 +136,9 @@
       "registry_name": "stat_customisation_screen",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java",
           "src/main/java/net/mcreator/shangrilafrontier/network/StatCustomisationScreenButtonMessage.java",
-          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java"
+          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java",
+          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java"
         ]
       },
       "path": "~/System"
@@ -363,6 +359,128 @@
         ]
       },
       "path": "~/Dimension"
+    },
+    {
+      "name": "EntityDie",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_die",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/EntityDieProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/Level System"
+    },
+    {
+      "name": "LevelUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "level_up",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/LevelUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/Level System"
+    },
+    {
+      "name": "UpdateTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "update_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/UpdateTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/Level System"
+    },
+    {
+      "name": "EntityAttacked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_attacked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/EntityAttackedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/StatSystem"
+    },
+    {
+      "name": "Respawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "respawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/RespawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/StatSystem"
+    },
+    {
+      "name": "PlayerTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/PlayerTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System/StatSystem"
     }
   ],
   "variable_elements": [
@@ -467,6 +585,24 @@
       "type": "itemstack",
       "scope": "player_persistent",
       "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "xp",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "sp",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "MAXHP",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [],
@@ -494,7 +630,16 @@
       },
       {
         "name": "System",
-        "children": []
+        "children": [
+          {
+            "name": "Level System",
+            "children": []
+          },
+          {
+            "name": "StatSystem",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Weapons",

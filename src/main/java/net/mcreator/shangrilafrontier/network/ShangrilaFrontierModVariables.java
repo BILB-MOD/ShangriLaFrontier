@@ -94,6 +94,9 @@ public class ShangrilaFrontierModVariables {
 			clone.InGame = original.InGame;
 			clone.OverworldInventory = original.OverworldInventory;
 			clone.ShangriLaInventory = original.ShangriLaInventory;
+			clone.xp = original.xp;
+			clone.sp = original.sp;
+			clone.MAXHP = original.MAXHP;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -152,6 +155,9 @@ public class ShangrilaFrontierModVariables {
 		public boolean InGame = false;
 		public ItemStack OverworldInventory = ItemStack.EMPTY;
 		public ItemStack ShangriLaInventory = ItemStack.EMPTY;
+		public double xp = 0;
+		public double sp = 0;
+		public double MAXHP = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -177,11 +183,20 @@ public class ShangrilaFrontierModVariables {
 			nbt.putBoolean("InGame", InGame);
 			nbt.put("OverworldInventory", OverworldInventory.save(new CompoundTag()));
 			nbt.put("ShangriLaInventory", ShangriLaInventory.save(new CompoundTag()));
+			nbt.putDouble("xp", xp);
+			nbt.putDouble("sp", sp);
+			nbt.putDouble("MAXHP", MAXHP);
 			return nbt;
 		}
 
-		public void readNBT(Tag Tag) {
-			CompoundTag nbt = (CompoundTag) Tag;
+		public void readNBT(Tag tag) {
+			if (tag == null) {
+				tag = writeNBT();
+			}
+			CompoundTag nbt = (CompoundTag) tag;
+			if (nbt == null) {
+				nbt = (CompoundTag) writeNBT();
+			}
 			HP = nbt.getDouble("HP");
 			MP = nbt.getDouble("MP");
 			STM = nbt.getDouble("STM");
@@ -199,6 +214,9 @@ public class ShangrilaFrontierModVariables {
 			InGame = nbt.getBoolean("InGame");
 			OverworldInventory = ItemStack.of(nbt.getCompound("OverworldInventory"));
 			ShangriLaInventory = ItemStack.of(nbt.getCompound("ShangriLaInventory"));
+			xp = nbt.getDouble("xp");
+			sp = nbt.getDouble("sp");
+			MAXHP = nbt.getDouble("MAXHP");
 		}
 	}
 
@@ -249,6 +267,9 @@ public class ShangrilaFrontierModVariables {
 					variables.InGame = message.data.InGame;
 					variables.OverworldInventory = message.data.OverworldInventory;
 					variables.ShangriLaInventory = message.data.ShangriLaInventory;
+					variables.xp = message.data.xp;
+					variables.sp = message.data.sp;
+					variables.MAXHP = message.data.MAXHP;
 				}
 			});
 			context.setPacketHandled(true);
