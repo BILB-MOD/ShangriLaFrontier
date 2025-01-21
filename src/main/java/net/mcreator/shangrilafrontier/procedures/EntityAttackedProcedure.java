@@ -42,11 +42,14 @@ public class EntityAttackedProcedure {
 		double Crit = 0;
 		damage = Math.ceil((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).STR * 0.02);
 		Crit = Mth.nextInt(RandomSource.create(), (int) (sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritChance, 5000);
+		Crit = Mth.nextInt(RandomSource.create(), 1, 100);
+		if (Crit <= (sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritChance) {
+			damage = damage * ((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritDmg / 100);
+			if (sourceentity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("Critical"), true);
+		}
 		if (sourceentity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((new java.text.DecimalFormat("DMG: ##").format(damage))), true);
-		if (Crit == 5000) {
-			damage = damage * ((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritDmg / 100);
-		}
 		for (int index0 = 0; index0 < 2; index0++) {
 			stage = stage + 1;
 			if (stage == 1) {
@@ -56,7 +59,7 @@ public class EntityAttackedProcedure {
 				weapon = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
 			}
 			if (weapon.getItem() instanceof SwordItem || weapon.getItem() instanceof AxeItem) {
-				damage = damage * 1.1;
+				damage = damage * 1.5;
 			}
 		}
 		entity.getPersistentData().putBoolean("hit", true);

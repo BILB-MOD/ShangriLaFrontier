@@ -82,7 +82,6 @@ public class ShangrilaFrontierModVariables {
 			clone.STM = original.STM;
 			clone.STR = original.STR;
 			clone.DEX = original.DEX;
-			clone.VIT = original.VIT;
 			clone.AGI = original.AGI;
 			clone.SKILL = original.SKILL;
 			clone.LUC = original.LUC;
@@ -143,7 +142,6 @@ public class ShangrilaFrontierModVariables {
 		public double STM = 0;
 		public double STR = 0;
 		public double DEX = 0;
-		public double VIT = 0;
 		public double AGI = 0;
 		public double SKILL = 0;
 		public double LUC = 0;
@@ -171,7 +169,6 @@ public class ShangrilaFrontierModVariables {
 			nbt.putDouble("STM", STM);
 			nbt.putDouble("STR", STR);
 			nbt.putDouble("DEX", DEX);
-			nbt.putDouble("VIT", VIT);
 			nbt.putDouble("AGI", AGI);
 			nbt.putDouble("SKILL", SKILL);
 			nbt.putDouble("LUC", LUC);
@@ -202,7 +199,6 @@ public class ShangrilaFrontierModVariables {
 			STM = nbt.getDouble("STM");
 			STR = nbt.getDouble("STR");
 			DEX = nbt.getDouble("DEX");
-			VIT = nbt.getDouble("VIT");
 			AGI = nbt.getDouble("AGI");
 			SKILL = nbt.getDouble("SKILL");
 			LUC = nbt.getDouble("LUC");
@@ -255,7 +251,6 @@ public class ShangrilaFrontierModVariables {
 					variables.STM = message.data.STM;
 					variables.STR = message.data.STR;
 					variables.DEX = message.data.DEX;
-					variables.VIT = message.data.VIT;
 					variables.AGI = message.data.AGI;
 					variables.SKILL = message.data.SKILL;
 					variables.LUC = message.data.LUC;

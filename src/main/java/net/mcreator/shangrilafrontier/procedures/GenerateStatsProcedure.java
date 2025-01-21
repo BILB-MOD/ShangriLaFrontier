@@ -39,7 +39,7 @@ public class GenerateStatsProcedure {
 		{
 			double _setval = VIT;
 			entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.VIT = _setval;
+				capability.MAXHP = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
