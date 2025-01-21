@@ -44,19 +44,12 @@ public class EntityAttackedProcedure {
 		if (crit <= (sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritChance) {
 			damage = Math.ceil(damage + ((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritDmg * damage) / 100);
 			if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("critical"), false);
+				_player.displayClientMessage(Component.literal("Critical!"), false);
 		}
-		for (int index0 = 0; index0 < 2; index0++) {
-			stage = stage + 1;
-			if (stage == 1) {
-				weapon = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-			}
-			if (stage == 2) {
-				weapon = (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
-			}
-			if (weapon.is(ItemTags.create(new ResourceLocation("dualwield")))) {
-				damage = Math.ceil(damage * 1.5);
-			}
+		weapon = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+		weapon = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
+		if (weapon.is(ItemTags.create(new ResourceLocation("dualwield")))) {
+			damage = damage * 1.5;
 		}
 		if (sourceentity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((new java.text.DecimalFormat("DMG: ##").format(damage))), true);
