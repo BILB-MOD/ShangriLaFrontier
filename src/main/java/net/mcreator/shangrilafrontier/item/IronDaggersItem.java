@@ -6,8 +6,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Item;
 
-public class MercenaryDaggersItem extends SwordItem {
-	public MercenaryDaggersItem() {
+public class IronDaggersItem extends SwordItem {
+	public IronDaggersItem() {
 		super(new Tier() {
 			public int getUses() {
 				return 1000;
@@ -18,7 +18,7 @@ public class MercenaryDaggersItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 2f;
+				return 0f;
 			}
 
 			public int getLevel() {
@@ -32,6 +32,6 @@ public class MercenaryDaggersItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 3, -2.4f, new Item.Properties());
+		}, 3, -1.8f, new Item.Properties());
 	}
 }

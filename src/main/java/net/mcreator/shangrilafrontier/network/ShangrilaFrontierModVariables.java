@@ -192,14 +192,8 @@ public class ShangrilaFrontierModVariables {
 			return nbt;
 		}
 
-		public void readNBT(Tag tag) {
-			if (tag == null) {
-				tag = writeNBT();
-			}
-			CompoundTag nbt = (CompoundTag) tag;
-			if (nbt == null) {
-				nbt = (CompoundTag) writeNBT();
-			}
+		public void readNBT(Tag Tag) {
+			CompoundTag nbt = (CompoundTag) Tag;
 			HP = nbt.getDouble("HP");
 			MP = nbt.getDouble("MP");
 			STM = nbt.getDouble("STM");

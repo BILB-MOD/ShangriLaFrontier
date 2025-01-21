@@ -5,10 +5,10 @@
     "toolType": "Sword",
     "renderType": 1,
     "blockingRenderType": 0,
-    "texture": "mercenarydaggers",
-    "customModelName": "mercenary_daggers:default",
+    "texture": "stelitto",
+    "customModelName": "starting_daggers:default",
     "blockingModelName": "Normal blocking",
-    "name": "Mercenary Daggers",
+    "name": "Iron Daggers",
     "specialInformation": {
       "fixedValue": []
     },
@@ -18,9 +18,9 @@
       }
     ],
     "efficiency": 4.0,
-    "attackSpeed": 1.6,
+    "attackSpeed": 2.2,
     "enchantability": 2,
-    "damageVsEntity": 6.0,
+    "damageVsEntity": 4.0,
     "usageCount": 1000,
     "glowCondition": {
       "fixedValue": false

@@ -1,0 +1,7 @@
+{
+  "parent": "shangrila_frontier:custom/basic_duel_sword",
+  "textures": {
+    "0": "shangrila_frontier:block/basicswordtexture",
+    "particle": "shangrila_frontier:item/basicswordtexture"
+  }
+}

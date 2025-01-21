@@ -497,8 +497,8 @@
       "registry_name": "mercenary_daggers",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java",
-          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json"
+          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json",
+          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java"
         ]
       },
       "path": "~/Weapons"
@@ -648,6 +648,34 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "IronDaggers",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iron_daggers",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/item/IronDaggersItem.java",
+          "src/main/resources/assets/shangrila_frontier/models/item/iron_daggers.json"
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "IronSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iron_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/item/IronSwordItem.java",
+          "src/main/resources/assets/shangrila_frontier/models/item/iron_sword.json"
+        ]
+      },
+      "path": "~/Weapons"
     }
   ],
   "variable_elements": [
@@ -784,6 +812,8 @@
       "CUSTOM:MercenaryDaggers"
     ],
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:IronSword",
+      "~CUSTOM:IronDaggers",
       "~CUSTOM:MercenaryDaggers"
     ],
     "BLOCKS:minecraft:overworld_carver_replaceables": [
@@ -794,7 +824,9 @@
   "language_map": {
     "en_us": {
       "item.shangrila_frontier.vr_headset_helmet": "Vr Headset",
+      "item.shangrila_frontier.iron_sword": "Iron Sword",
       "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
+      "item.shangrila_frontier.iron_daggers": "Iron Daggers",
       "item.shangrila_frontier.mercenary_daggers": "Mercenary Daggers",
       "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
       "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
