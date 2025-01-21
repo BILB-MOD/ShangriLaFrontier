@@ -481,6 +481,26 @@
         ]
       },
       "path": "~/System/StatSystem"
+    },
+    {
+      "name": "GetXp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_xp",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/GetXpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Var"
     }
   ],
   "variable_elements": [
@@ -655,6 +675,10 @@
       },
       {
         "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Var",
         "children": []
       }
     ]
