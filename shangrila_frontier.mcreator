@@ -534,6 +534,38 @@
         ]
       },
       "path": "~/System"
+    },
+    {
+      "name": "SetStat",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_stat",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/command/SetStatCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetHealth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_health",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetHealthProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -716,6 +748,10 @@
       },
       {
         "name": "Weapons",
+        "children": []
+      },
+      {
+        "name": "Commands",
         "children": []
       }
     ]
