@@ -34,5 +34,12 @@ public class LuckProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		{
+			double _setval = (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).LUC;
+			entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.CritDmg = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }

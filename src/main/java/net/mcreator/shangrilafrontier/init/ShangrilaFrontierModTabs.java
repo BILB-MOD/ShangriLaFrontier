@@ -23,6 +23,7 @@ public class ShangrilaFrontierModTabs {
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 		if (tabData.getTabKey() == CreativeModeTabs.COMBAT) {
 			tabData.accept(ShangrilaFrontierModItems.VR_HEADSET_HELMET.get());
+			tabData.accept(ShangrilaFrontierModItems.MERCENARY_DAGGERS.get());
 		}
 	}
 }

@@ -136,9 +136,9 @@
       "registry_name": "stat_customisation_screen",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java",
           "src/main/java/net/mcreator/shangrilafrontier/network/StatCustomisationScreenButtonMessage.java",
-          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java",
-          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java"
+          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java"
         ]
       },
       "path": "~/System"
@@ -481,6 +481,39 @@
         ]
       },
       "path": "~/System/StatSystem"
+    },
+    {
+      "name": "MercenaryDaggers",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mercenary_daggers",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json",
+          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java"
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "DualWieldDamageIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dual_wield_damage_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/DualWieldDamageIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System"
     }
   ],
   "variable_elements": [
@@ -607,6 +640,12 @@
   ],
   "sound_elements": [],
   "tag_elements": {
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:MercenaryDaggers"
+    ],
+    "ITEMS:minecraft:dualwield": [
+      "CUSTOM:MercenaryDaggers"
+    ],
     "BLOCKS:minecraft:overworld_carver_replaceables": [
       "~Blocks.STONE#0",
       "~Blocks.GRASS"
@@ -617,6 +656,7 @@
     "en_us": {
       "item.shangrila_frontier.vr_headset_helmet": "Vr Headset",
       "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
+      "item.shangrila_frontier.mercenary_daggers": "Mercenary Daggers",
       "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
       "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
     }

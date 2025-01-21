@@ -9,7 +9,7 @@ public class PlayerJoinClassStatsProcedure {
 		if (entity == null)
 			return;
 		if (((entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).PlayerClass).equals("Mercenary")) {
-			GenerateStatsProcedure.execute(entity, 10, 10, 5000, 10, 10, 10, 10, 10);
+			GenerateStatsProcedure.execute(entity, 10, 10, 99, 10, 10, 10, 10, 10);
 		}
 	}
 }

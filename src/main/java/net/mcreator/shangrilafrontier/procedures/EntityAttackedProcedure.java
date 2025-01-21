@@ -8,6 +8,8 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.shangrilafrontier.network.ShangrilaFrontierModVariables;
@@ -33,7 +35,17 @@ public class EntityAttackedProcedure {
 		ItemStack weapon = ItemStack.EMPTY;
 		double damage = 0;
 		double stage = 0;
+		double crit = 0;
 		damage = Math.ceil((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).STR * 0.1);
+		if (sourceentity.getPersistentData().getBoolean("DualWield")) {
+			damage = Math.ceil(damage * 1.5);
+		}
+		crit = Mth.nextInt(RandomSource.create(), 1, 100);
+		if (crit <= (sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritChance) {
+			damage = Math.ceil(damage + ((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritDmg * damage) / 100);
+			if (sourceentity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("critical"), false);
+		}
 		if (sourceentity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((new java.text.DecimalFormat("DMG: ##").format(damage))), true);
 		entity.getPersistentData().putBoolean("hit", true);
