@@ -1,0 +1,7 @@
+{
+  "parent": "shangrila_frontier:custom/starting_daggers",
+  "textures": {
+    "1": "shangrila_frontier:block/stelitto",
+    "particle": "shangrila_frontier:item/stelitto"
+  }
+}

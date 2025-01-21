@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "shangrila_frontier:iron_sword",
+    "shangrila_frontier:iron_daggers",
     "shangrila_frontier:mercenary_daggers"
   ]
 }

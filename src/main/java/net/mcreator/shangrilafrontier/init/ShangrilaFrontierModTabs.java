@@ -24,6 +24,8 @@ public class ShangrilaFrontierModTabs {
 		if (tabData.getTabKey() == CreativeModeTabs.COMBAT) {
 			tabData.accept(ShangrilaFrontierModItems.VR_HEADSET_HELMET.get());
 			tabData.accept(ShangrilaFrontierModItems.MERCENARY_DAGGERS.get());
+			tabData.accept(ShangrilaFrontierModItems.IRON_DAGGERS.get());
+			tabData.accept(ShangrilaFrontierModItems.IRON_SWORD.get());
 		}
 	}
 }
