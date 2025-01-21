@@ -501,6 +501,39 @@
         ]
       },
       "path": "~/Var"
+    },
+    {
+      "name": "MercenaryDaggers",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mercenary_daggers",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java",
+          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json"
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "DualWieldDamageIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dual_wield_damage_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/DualWieldDamageIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/System"
     }
   ],
   "variable_elements": [
@@ -627,6 +660,9 @@
   ],
   "sound_elements": [],
   "tag_elements": {
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:MercenaryDaggers"
+    ],
     "BLOCKS:minecraft:overworld_carver_replaceables": [
       "~Blocks.STONE#0",
       "~Blocks.GRASS"
@@ -637,6 +673,7 @@
     "en_us": {
       "item.shangrila_frontier.vr_headset_helmet": "Vr Headset",
       "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
+      "item.shangrila_frontier.mercenary_daggers": "Mercenary Daggers",
       "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
       "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
     }
@@ -645,24 +682,11 @@
     "name": "~",
     "children": [
       {
-        "name": "Dimension",
+        "name": "Items",
         "children": []
       },
       {
-        "name": "System",
-        "children": [
-          {
-            "name": "Level System",
-            "children": []
-          },
-          {
-            "name": "StatSystem",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "Weapons",
+        "name": "Var",
         "children": []
       },
       {
@@ -670,15 +694,28 @@
         "children": []
       },
       {
+        "name": "System",
+        "children": [
+          {
+            "name": "StatSystem",
+            "children": []
+          },
+          {
+            "name": "Level System",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Dimension",
+        "children": []
+      },
+      {
         "name": "Armour",
         "children": []
       },
       {
-        "name": "Items",
-        "children": []
-      },
-      {
-        "name": "Var",
+        "name": "Weapons",
         "children": []
       }
     ]

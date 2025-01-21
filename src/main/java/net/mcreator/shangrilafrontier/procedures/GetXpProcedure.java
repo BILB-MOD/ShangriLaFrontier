@@ -1,8 +1,6 @@
 package net.mcreator.shangrilafrontier.procedures;
 
-import net.minecraft.world.entity.Entity;
-
-import net.mcreator.shangrilafrontier.network.ShangrilaFrontierModVariables;
+import net.minecraftforge.eventbus.api.Event;
 
 public class GetXpProcedure {
 	public static String execute(Entity entity) {
