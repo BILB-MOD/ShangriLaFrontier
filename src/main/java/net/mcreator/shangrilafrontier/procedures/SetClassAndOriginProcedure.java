@@ -8,7 +8,7 @@ import net.mcreator.shangrilafrontier.network.ShangrilaFrontierModVariables;
 import java.util.HashMap;
 
 public class SetClassAndOriginProcedure {
-	public static void execute(Entity entity, HashMap guistate) {
+	public static void execute(Entity entity, HashMap guistate, double MaxHp) {
 		if (entity == null || guistate == null)
 			return;
 		{
@@ -25,6 +25,6 @@ public class SetClassAndOriginProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
-		PlayerJoinClassStatsProcedure.execute(entity);
+		PlayerJoinClassStatsProcedure.execute(entity, MaxHp);
 	}
 }

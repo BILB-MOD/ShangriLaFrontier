@@ -12,8 +12,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.shangrilafrontier.world.inventory.StatCustomisationScreenMenu;
-import net.mcreator.shangrilafrontier.network.StatCustomisationScreenButtonMessage;
-import net.mcreator.shangrilafrontier.ShangrilaFrontierMod;
 
 import java.util.HashMap;
 
@@ -143,12 +141,6 @@ public class StatCustomisationScreenScreen extends AbstractContainerScreen<StatC
 		guistate.put("text:PlayerClass", PlayerClass);
 		this.addWidget(this.PlayerClass);
 		button_set_class_and_origin = Button.builder(Component.translatable("gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin"), e -> {
-			if (true) {
-				textstate.put("textin:Origin", Origin.getValue());
-				textstate.put("textin:PlayerClass", PlayerClass.getValue());
-				ShangrilaFrontierMod.PACKET_HANDLER.sendToServer(new StatCustomisationScreenButtonMessage(0, x, y, z, textstate));
-				StatCustomisationScreenButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
-			}
 		}).bounds(this.leftPos + 22, this.topPos + 134, 129, 20).build();
 		guistate.put("button:button_set_class_and_origin", button_set_class_and_origin);
 		this.addRenderableWidget(button_set_class_and_origin);

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:stone",
-    "minecraft:grass_block"
+    "minecraft:stone"
   ]
 }

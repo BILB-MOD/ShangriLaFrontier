@@ -38,9 +38,6 @@
           "name": "button_set_class_and_origin",
           "text": "Set Class and Origin",
           "isUndecorated": false,
-          "onClick": {
-            "name": "SetClassAndOrigin"
-          },
           "width": 129,
           "height": 20,
           "x": 148,

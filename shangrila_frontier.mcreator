@@ -74,6 +74,10 @@
             "type": "number"
           },
           {
+            "name": "MaxHp",
+            "type": "number"
+          },
+          {
             "name": "SKILL",
             "type": "number"
           },
@@ -83,10 +87,6 @@
           },
           {
             "name": "STR",
-            "type": "number"
-          },
-          {
-            "name": "VIT",
             "type": "number"
           }
         ]
@@ -136,9 +136,8 @@
       "registry_name": "stat_customisation_screen",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java",
-          "src/main/java/net/mcreator/shangrilafrontier/network/StatCustomisationScreenButtonMessage.java",
-          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java"
+          "src/main/java/net/mcreator/shangrilafrontier/client/gui/StatCustomisationScreenScreen.java",
+          "src/main/java/net/mcreator/shangrilafrontier/world/inventory/StatCustomisationScreenMenu.java"
         ]
       },
       "path": "~/System"
@@ -161,6 +160,10 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "MaxHp",
+            "type": "number"
           }
         ]
       },
@@ -180,6 +183,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "MaxHp",
+            "type": "number"
           }
         ]
       },
@@ -193,8 +200,8 @@
       "registry_name": "vr_headset",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/shangrilafrontier/item/VrHeadsetItem.java",
-          "src/main/resources/assets/shangrila_frontier/models/item/vr_headset_helmet.json"
+          "src/main/resources/assets/shangrila_frontier/models/item/vr_headset_helmet.json",
+          "src/main/java/net/mcreator/shangrilafrontier/item/VrHeadsetItem.java"
         ]
       },
       "path": "~/Armour"
@@ -246,8 +253,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/shangrilafrontier/world/dimension/ShangrilaFrontierDimension.java",
-          "src/main/resources/data/shangrila_frontier/dimension_type/shangrila_frontier.json",
-          "src/main/resources/data/shangrila_frontier/dimension/shangrila_frontier.json"
+          "src/main/resources/data/shangrila_frontier/dimension/shangrila_frontier.json",
+          "src/main/resources/data/shangrila_frontier/dimension_type/shangrila_frontier.json"
         ]
       },
       "path": "~/Dimension"
@@ -490,30 +497,157 @@
       "registry_name": "mercenary_daggers",
       "metadata": {
         "files": [
-          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json",
-          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java"
+          "src/main/java/net/mcreator/shangrilafrontier/item/MercenaryDaggersItem.java",
+          "src/main/resources/assets/shangrila_frontier/models/item/mercenary_daggers.json"
         ]
       },
       "path": "~/Weapons"
     },
     {
-      "name": "DualWieldDamageIncrease",
+      "name": "SLFStat",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slf_stat",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/command/SLFStatCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetHealth",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "dual_wield_damage_increase",
+      "registry_name": "set_health",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/shangrilafrontier/procedures/DualWieldDamageIncreaseProcedure.java"
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetHealthProcedure.java"
         ],
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
+            "name": "arguments",
+            "type": "cmdcontext"
           }
         ]
       },
-      "path": "~/System"
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetMana",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_mana",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetManaProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetStrength",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_strength",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetStrengthProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetStamina",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_stamina",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetStaminaProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetDefense",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_defense",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetDefenseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetAgility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_agility",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetAgilityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "SetLuck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_luck",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/SetLuckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -543,12 +677,6 @@
     },
     {
       "name": "DEX",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "VIT",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
@@ -636,19 +764,30 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "player_joins",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "MaxMP",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [],
   "tag_elements": {
-    "ITEMS:minecraft:swords": [
-      "~CUSTOM:MercenaryDaggers"
-    ],
     "ITEMS:minecraft:dualwield": [
       "CUSTOM:MercenaryDaggers"
     ],
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:MercenaryDaggers"
+    ],
     "BLOCKS:minecraft:overworld_carver_replaceables": [
-      "~Blocks.STONE#0",
-      "~Blocks.GRASS"
+      "~Blocks.STONE#0"
     ]
   },
   "tab_element_order": {},
@@ -695,6 +834,10 @@
       },
       {
         "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Commands",
         "children": []
       }
     ]

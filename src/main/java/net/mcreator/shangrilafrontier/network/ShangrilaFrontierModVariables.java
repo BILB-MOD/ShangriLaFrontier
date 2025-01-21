@@ -82,7 +82,6 @@ public class ShangrilaFrontierModVariables {
 			clone.STM = original.STM;
 			clone.STR = original.STR;
 			clone.DEX = original.DEX;
-			clone.VIT = original.VIT;
 			clone.AGI = original.AGI;
 			clone.SKILL = original.SKILL;
 			clone.LUC = original.LUC;
@@ -97,6 +96,8 @@ public class ShangrilaFrontierModVariables {
 			clone.xp = original.xp;
 			clone.sp = original.sp;
 			clone.MAXHP = original.MAXHP;
+			clone.player_joins = original.player_joins;
+			clone.MaxMP = original.MaxMP;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -143,7 +144,6 @@ public class ShangrilaFrontierModVariables {
 		public double STM = 0;
 		public double STR = 0;
 		public double DEX = 0;
-		public double VIT = 0;
 		public double AGI = 0;
 		public double SKILL = 0;
 		public double LUC = 0;
@@ -158,6 +158,8 @@ public class ShangrilaFrontierModVariables {
 		public double xp = 0;
 		public double sp = 0;
 		public double MAXHP = 0;
+		public boolean player_joins = false;
+		public double MaxMP = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -171,7 +173,6 @@ public class ShangrilaFrontierModVariables {
 			nbt.putDouble("STM", STM);
 			nbt.putDouble("STR", STR);
 			nbt.putDouble("DEX", DEX);
-			nbt.putDouble("VIT", VIT);
 			nbt.putDouble("AGI", AGI);
 			nbt.putDouble("SKILL", SKILL);
 			nbt.putDouble("LUC", LUC);
@@ -186,17 +187,24 @@ public class ShangrilaFrontierModVariables {
 			nbt.putDouble("xp", xp);
 			nbt.putDouble("sp", sp);
 			nbt.putDouble("MAXHP", MAXHP);
+			nbt.putBoolean("player_joins", player_joins);
+			nbt.putDouble("MaxMP", MaxMP);
 			return nbt;
 		}
 
-		public void readNBT(Tag Tag) {
-			CompoundTag nbt = (CompoundTag) Tag;
+		public void readNBT(Tag tag) {
+			if (tag == null) {
+				tag = writeNBT();
+			}
+			CompoundTag nbt = (CompoundTag) tag;
+			if (nbt == null) {
+				nbt = (CompoundTag) writeNBT();
+			}
 			HP = nbt.getDouble("HP");
 			MP = nbt.getDouble("MP");
 			STM = nbt.getDouble("STM");
 			STR = nbt.getDouble("STR");
 			DEX = nbt.getDouble("DEX");
-			VIT = nbt.getDouble("VIT");
 			AGI = nbt.getDouble("AGI");
 			SKILL = nbt.getDouble("SKILL");
 			LUC = nbt.getDouble("LUC");
@@ -211,6 +219,8 @@ public class ShangrilaFrontierModVariables {
 			xp = nbt.getDouble("xp");
 			sp = nbt.getDouble("sp");
 			MAXHP = nbt.getDouble("MAXHP");
+			player_joins = nbt.getBoolean("player_joins");
+			MaxMP = nbt.getDouble("MaxMP");
 		}
 	}
 
@@ -249,7 +259,6 @@ public class ShangrilaFrontierModVariables {
 					variables.STM = message.data.STM;
 					variables.STR = message.data.STR;
 					variables.DEX = message.data.DEX;
-					variables.VIT = message.data.VIT;
 					variables.AGI = message.data.AGI;
 					variables.SKILL = message.data.SKILL;
 					variables.LUC = message.data.LUC;
@@ -264,6 +273,8 @@ public class ShangrilaFrontierModVariables {
 					variables.xp = message.data.xp;
 					variables.sp = message.data.sp;
 					variables.MAXHP = message.data.MAXHP;
+					variables.player_joins = message.data.player_joins;
+					variables.MaxMP = message.data.MaxMP;
 				}
 			});
 			context.setPacketHandled(true);

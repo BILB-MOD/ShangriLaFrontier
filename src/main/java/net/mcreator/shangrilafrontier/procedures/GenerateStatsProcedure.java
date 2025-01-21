@@ -5,13 +5,13 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.shangrilafrontier.network.ShangrilaFrontierModVariables;
 
 public class GenerateStatsProcedure {
-	public static void execute(Entity entity, double AGI, double DEX, double LUC, double Magic, double SKILL, double STM, double STR, double VIT) {
+	public static void execute(Entity entity, double AGI, double DEX, double LUC, double Magic, double MaxHp, double SKILL, double STM, double STR) {
 		if (entity == null)
 			return;
 		{
 			double _setval = Magic;
 			entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.MP = _setval;
+				capability.MaxMP = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
@@ -37,9 +37,9 @@ public class GenerateStatsProcedure {
 			});
 		}
 		{
-			double _setval = VIT;
+			double _setval = MaxHp;
 			entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.VIT = _setval;
+				capability.MAXHP = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}

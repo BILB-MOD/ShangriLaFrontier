@@ -7,9 +7,12 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.shangrilafrontier.network.ShangrilaFrontierModVariables;
@@ -37,14 +40,23 @@ public class EntityAttackedProcedure {
 		double stage = 0;
 		double crit = 0;
 		damage = Math.ceil((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).STR * 0.1);
-		if (sourceentity.getPersistentData().getBoolean("DualWield")) {
-			damage = Math.ceil(damage * 1.5);
-		}
 		crit = Mth.nextInt(RandomSource.create(), 1, 100);
 		if (crit <= (sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritChance) {
 			damage = Math.ceil(damage + ((sourceentity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).CritDmg * damage) / 100);
 			if (sourceentity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal("critical"), false);
+		}
+		for (int index0 = 0; index0 < 2; index0++) {
+			stage = stage + 1;
+			if (stage == 1) {
+				weapon = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+			}
+			if (stage == 2) {
+				weapon = (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
+			}
+			if (weapon.is(ItemTags.create(new ResourceLocation("dualwield")))) {
+				damage = Math.ceil(damage * 1.5);
+			}
 		}
 		if (sourceentity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((new java.text.DecimalFormat("DMG: ##").format(damage))), true);
