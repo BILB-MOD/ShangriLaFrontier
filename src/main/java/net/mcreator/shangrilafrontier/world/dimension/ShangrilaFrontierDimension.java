@@ -52,7 +52,7 @@ public class ShangrilaFrontierDimension {
 			ShangrilaFrontierPlayerLeavesDimensionProcedure.execute(entity);
 		}
 		if (event.getTo() == ResourceKey.create(Registries.DIMENSION, new ResourceLocation("shangrila_frontier:shangrila_frontier"))) {
-			ShangrilaFrontierPlayerEntersDimensionProcedure.execute(entity);
+			ShangrilaFrontierPlayerEntersDimensionProcedure.execute(world, x, y, z, entity);
 		}
 	}
 }

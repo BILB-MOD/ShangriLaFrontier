@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "shangrila_frontier:vr_headset_helmet"
+    },
+    "title": {
+      "translate": "advancements.enter_shangri_la.title"
+    },
+    "description": {
+      "translate": "advancements.enter_shangri_la.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_shangri_la_0": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "shangrila_frontier:shangrila_frontier"
+      }
+    }
+  }
+}

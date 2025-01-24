@@ -4,6 +4,8 @@
   "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
   "item.shangrila_frontier.iron_daggers": "Iron Daggers",
   "item.shangrila_frontier.mercenary_daggers": "Mercenary Daggers",
+  "advancements.enter_shangri_la.descr": "Entered the most realistic Vr game",
   "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
+  "advancements.enter_shangri_la.title": "Entered Shangri La Frontier",
   "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
 }

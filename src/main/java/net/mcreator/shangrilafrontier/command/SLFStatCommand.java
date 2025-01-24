@@ -86,7 +86,7 @@ public class SLFStatCommand {
 
 					SetStaminaProcedure.execute(arguments);
 					return 0;
-				})).then(Commands.literal("Defense").executes(arguments -> {
+				})).then(Commands.literal("Dexterity").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

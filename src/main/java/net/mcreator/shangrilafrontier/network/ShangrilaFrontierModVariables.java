@@ -98,6 +98,7 @@ public class ShangrilaFrontierModVariables {
 			clone.MAXHP = original.MAXHP;
 			clone.player_joins = original.player_joins;
 			clone.MaxMP = original.MaxMP;
+			clone.ItemRequirements = original.ItemRequirements;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -160,6 +161,7 @@ public class ShangrilaFrontierModVariables {
 		public double MAXHP = 0;
 		public boolean player_joins = false;
 		public double MaxMP = 0;
+		public ItemStack ItemRequirements = ItemStack.EMPTY;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -189,6 +191,7 @@ public class ShangrilaFrontierModVariables {
 			nbt.putDouble("MAXHP", MAXHP);
 			nbt.putBoolean("player_joins", player_joins);
 			nbt.putDouble("MaxMP", MaxMP);
+			nbt.put("ItemRequirements", ItemRequirements.save(new CompoundTag()));
 			return nbt;
 		}
 
@@ -215,6 +218,7 @@ public class ShangrilaFrontierModVariables {
 			MAXHP = nbt.getDouble("MAXHP");
 			player_joins = nbt.getBoolean("player_joins");
 			MaxMP = nbt.getDouble("MaxMP");
+			ItemRequirements = ItemStack.of(nbt.getCompound("ItemRequirements"));
 		}
 	}
 
@@ -269,6 +273,7 @@ public class ShangrilaFrontierModVariables {
 					variables.MAXHP = message.data.MAXHP;
 					variables.player_joins = message.data.player_joins;
 					variables.MaxMP = message.data.MaxMP;
+					variables.ItemRequirements = message.data.ItemRequirements;
 				}
 			});
 			context.setPacketHandled(true);
