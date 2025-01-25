@@ -16,6 +16,10 @@
             "type": "entity"
           },
           {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
             "name": "amount",
             "type": "number"
           }
@@ -107,22 +111,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -220,6 +208,22 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -253,8 +257,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/shangrilafrontier/world/dimension/ShangrilaFrontierDimension.java",
-          "src/main/resources/data/shangrila_frontier/dimension/shangrila_frontier.json",
-          "src/main/resources/data/shangrila_frontier/dimension_type/shangrila_frontier.json"
+          "src/main/resources/data/shangrila_frontier/dimension_type/shangrila_frontier.json",
+          "src/main/resources/data/shangrila_frontier/dimension/shangrila_frontier.json"
         ]
       },
       "path": "~/Dimension"
@@ -676,6 +680,114 @@
         ]
       },
       "path": "~/Weapons"
+    },
+    {
+      "name": "StatRequirement",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stat_requirement",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/StatRequirementProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "MercenaryDaggersToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mercenary_daggers_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/MercenaryDaggersToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "IronDaggerToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iron_dagger_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/IronDaggerToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "IronSwordToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iron_sword_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/IronSwordToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons"
+    },
+    {
+      "name": "EnterShangriLa",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "enter_shangri_la",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/shangrila_frontier/advancements/enter_shangri_la.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "EnterShangriLaVRHeadset",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "enter_shangri_la_vr_headset",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/shangrilafrontier/procedures/EnterShangriLaVRHeadsetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Armour"
     }
   ],
   "variable_elements": [
@@ -804,6 +916,12 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "ItemRequirements",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
     }
   ],
   "sound_elements": [],
@@ -828,7 +946,9 @@
       "gui.shangrila_frontier.stat_customisation_screen.Origin": "Origin",
       "item.shangrila_frontier.iron_daggers": "Iron Daggers",
       "item.shangrila_frontier.mercenary_daggers": "Mercenary Daggers",
+      "advancements.enter_shangri_la.descr": "Entered the most realistic Vr game",
       "gui.shangrila_frontier.stat_customisation_screen.button_set_class_and_origin": "Set Class and Origin",
+      "advancements.enter_shangri_la.title": "Entered Shangri La Frontier",
       "gui.shangrila_frontier.stat_customisation_screen.PlayerClass": "Class"
     }
   },
@@ -870,6 +990,10 @@
       },
       {
         "name": "Commands",
+        "children": []
+      },
+      {
+        "name": "Achievements",
         "children": []
       }
     ]

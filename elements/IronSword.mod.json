@@ -30,6 +30,12 @@
     "blockDropsTier": "WOOD",
     "blocksAffected": [],
     "stayInGridWhenCrafting": false,
-    "damageOnCrafting": false
+    "damageOnCrafting": false,
+    "onItemInUseTick": {
+      "name": "IronSwordToolInHandTick"
+    },
+    "onEntitySwing": {
+      "name": "StatRequirement"
+    }
   }
 }

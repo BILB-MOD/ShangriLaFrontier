@@ -18,16 +18,16 @@ public class BeforeEntityHurtProcedure {
 	@SubscribeEvent
 	public static void onEntityAttacked(LivingHurtEvent event) {
 		if (event != null && event.getEntity() != null) {
-			execute(event, event.getEntity(), event.getAmount());
+			execute(event, event.getEntity(), event.getSource().getEntity(), event.getAmount());
 		}
 	}
 
-	public static void execute(Entity entity, double amount) {
-		execute(null, entity, amount);
+	public static void execute(Entity entity, Entity sourceentity, double amount) {
+		execute(null, entity, sourceentity, amount);
 	}
 
-	private static void execute(@Nullable Event event, Entity entity, double amount) {
-		if (entity == null)
+	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity, double amount) {
+		if (entity == null || sourceentity == null)
 			return;
 		double reishi_damage = 0;
 		double damage = 0;
@@ -43,24 +43,27 @@ public class BeforeEntityHurtProcedure {
 		} else if (event != null && event.hasResult()) {
 			event.setResult(Event.Result.DENY);
 		}
-		if (entity.getPersistentData().getBoolean("hit")) {
-			entity.getPersistentData().putBoolean("hit", false);
-			dmg = dmg + entity.getPersistentData().getDouble("deal");
-		}
-		armor = entity instanceof LivingEntity _livEnt ? _livEnt.getArmorValue() : 0;
-		dmg = dmg * (200 / (200 + (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).DEX));
-		dmg = dmg * (25 / (25 + armor));
-		if (entity instanceof Player) {
-			current_health = (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / 20;
-			current_health = current_health * (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).MAXHP;
-			current_health = current_health - dmg;
-			current_health = current_health / (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).MAXHP;
-			current_health = current_health * 20;
-			if (entity instanceof LivingEntity _entity)
-				_entity.setHealth((float) current_health);
+		if (sourceentity.getPersistentData().getBoolean("unable") == false) {
+			if (entity.getPersistentData().getBoolean("hit")) {
+				entity.getPersistentData().putBoolean("hit", false);
+				dmg = dmg + entity.getPersistentData().getDouble("deal");
+			}
+			armor = entity instanceof LivingEntity _livEnt ? _livEnt.getArmorValue() : 0;
+			dmg = dmg * (25 / (25 + armor));
+			if (entity instanceof Player) {
+				current_health = (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / 20;
+				current_health = current_health * (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).MAXHP;
+				current_health = current_health - dmg;
+				current_health = current_health / (entity.getCapability(ShangrilaFrontierModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ShangrilaFrontierModVariables.PlayerVariables())).MAXHP;
+				current_health = current_health * 20;
+				if (entity instanceof LivingEntity _entity)
+					_entity.setHealth((float) current_health);
+			} else {
+				if (entity instanceof LivingEntity _entity)
+					_entity.setHealth((float) ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) - dmg));
+			}
 		} else {
-			if (entity instanceof LivingEntity _entity)
-				_entity.setHealth((float) ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) - dmg));
+			entity.getPersistentData().putBoolean("unable", false);
 		}
 	}
 }
